@@ -5,6 +5,7 @@ var news_id_g = 0;
 var location_global = '';
 var sort = 'rating'
 var category_id = 0;
+var data_news_object;
 $(document).ready(function () {
     $('#danger-news').hide()
     getCategories()
@@ -80,6 +81,7 @@ $(document).ready(function () {
         axios.post('/api/getNewsById', data)
             .then(function (response) {
                 console.log("statusss " + parseInt(response.data.result.status))
+                data_news_object = response.data.result
                 if (parseInt(response.data.result.status) == 3) {
                     $('.modal-footer').hide()
                 } else {
@@ -148,10 +150,9 @@ $(document).ready(function () {
         })
         $('#edit-action').on('click', function (e) {
             e.preventDefault()
-            var data = {
-                newsId: news_id,
-                userId: user_id
-            }
+            var data = data_news_object
+            data.data = $('#message-text').val()
+            data.categoryId = parseInt($('#inputState option:selected').val())
             axios.post('/api/admin/editNews', data)
                 .then(function (response) {
                     $('#cardModal').modal('hide')
@@ -195,7 +196,7 @@ $(document).ready(function () {
     })
     $('#send-news-button').on('click', function (e) {
         e.preventDefault();
-        console.log($('#file2').val())
+        console.log("send-news-button")
         var text = $('#text-news').val()
         var data = {
             userId: user_id,
@@ -260,7 +261,19 @@ function getCategories () {
             $('#list-tab').empty()
             $('#list-tab').append("<a class=\"list-group-item list-group-item-action active\" id=\"list-home-list\" data-toggle=\"list\" href=\"#list-home\" role=\"tab\" aria-controls=\"home\">Все</a>")
             $.each(response.data.result, function (index, value) {
-                $('#list-tab').append("<a class=\"list-group-item list-group-item-action\" id=" + index + " data-toggle=\"list\" href=\"#" + index + "\" role=\"tab\" aria-controls="+ index +">" + value.name + "</a>")
+                $('#list-tab').append("<a class=\"list-group-item list-group-item-action\" id=" + index + " data-toggle=" + index + " href=\"#" + index + "\" role=\"tab\" aria-controls="+ index +">" + value.name + "</a>")
+            })
+
+            $('#nav-tabContent').empty()
+            $('#nav-tabContent').append("<div class=\"tab-pane fade show active\" id=\"list-home\" role=\"tabpanel\"\n" +
+                "                         aria-labelledby=\"list-home-list\">\n" +
+                "                        <div id=\"news-user\" class=\"row\"></div>\n" +
+                "                    </div>")
+            $.each(response.data.result, function (index, value) {
+                $('#nav-tabContent').append("<div class=\"tab-pane fade show \" id="+ index +" role=\"tabpanel\"\n" +
+                    "                         aria-labelledby="+ index +">\n" +
+                    "                        <div id=\"news-user\" class=\"row\"></div>\n" +
+                    "                    </div>")
             })
         })
 }
@@ -291,6 +304,7 @@ function getNews () {
     }
     axios.post('/api/getNews', data)
         .then(function (response) {
+            console.log("news " + response + user_id)
             console.log(response)
             $('#news-user').empty()
             $.each(response.data.result, function (index, value) {
