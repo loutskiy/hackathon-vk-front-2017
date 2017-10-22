@@ -1,0 +1,140 @@
+.btn {
+    border-radius: 4px !important;
+}
+
+.myContainer {
+    padding: 20px;
+}
+
+h6 {
+    font-size: 10pt;
+}
+
+.card-title {
+    font-weight: 600;
+    margin-bottom: 0px;
+}
+
+.card-text-post {
+    font-size: 11pt;
+    color: black;
+}
+
+#cardModal {
+    cursor: hand;
+}
+
+.card-date {
+    font-size: 9pt;
+    color: gray;
+}
+
+.card {
+    border-radius: 0px;
+}
+
+.list-group-item {
+    padding: 0.35rem 1.25rem;
+    font-size: 10pt;
+}
+
+#send-news-button {
+    background-color: #5e81a8;
+    border-color: #5e81a8;
+}
+
+h4 .card-title {
+    margin-bottom: 15px;
+}
+
+.card-header {
+    padding: 0.45rem 1.25rem;
+    font-size: 10pt;
+}
+
+#card-body-comment {
+    padding: 0.75rem 1.25rem;
+}
+
+.text-comment {
+    font-size: 11pt;
+    margin-bottom: 10px;
+}
+
+#comment-date {
+    font-size: 10pt;
+}
+
+.vk-button {
+    background-color: #5e81a8;
+    border-color: #5e81a8;
+}
+.app {
+    overflow: auto;
+    height: 800px;
+}
+
+.nav-link {
+    color: #285473
+}
+.list-group-item.active {
+    background-color: #d1d9e0;
+    border-color: #d1d9e0;
+    color: #5b6e85;
+}
+.list-group-item {
+    color: #5b6e85;
+}
+
+.btn-primary:hover {
+    color: white;
+    background-color: #325aa8;
+    border-color: #325aa8;
+}
+
+.btn-outline-primary:hover {
+    color: white;
+    background-color: #5e81a8;
+    border-color: #5e81a8;
+}
+
+.btn-outline-primary {
+    border-color: #5e81a8;
+    background-color: white;
+    color: #5e81a8;
+}
+.badge-info {
+    background-color: #d1d9e0;
+    color: #5b6e85;
+}
+
+.badge-success {
+    background-color: #432559;
+}
+
+.btn-success {
+    background-color: #432559;
+    border-color: #432559;
+}
+
+.btn-success:hover {
+    background-color: #3d1059;
+    border-color: #3d1059;
+}
+
+.badge {
+    font-weight: 500;
+    padding: 5px 10px;
+}
+
+.btn-danger {
+    color: #5e81a8;
+    background-color: white;
+    border-color: white;
+}
+
+.btn-danger:hover {
+    color: #5e81a8;
+    background-color: #d1d9e0;
+    border-color: #d1d9e0;
+}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Лентач</title>
+    <script src="https://vk.com/js/api/xd_connection.js?2"  type="text/javascript"></script>
+    <script>
+        var url = new URL(window.location.href);
+        var viewer_type = url.searchParams.get("viewer_type");
+        switch (parseInt(viewer_type)) {
+            case 4:
+            case 3:
+                window.location.replace ('/admin.html?' + url.searchParams.toString())
+                break;
+            default:
+                window.location.replace ('/user.html?' + url.searchParams.toString())
+                break;
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>
